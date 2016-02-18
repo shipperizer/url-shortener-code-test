@@ -1,21 +1,6 @@
 from flask import Blueprint, request, jsonify, render_template, redirect
-from flask.ext.wtf import Form
-from flask.ext.wtf.html5 import URLField
 
 from tiny_url import store
-
-
-class UrlForm(Form):
-
-    url = URLField('url')
-
-    def __init__(self, *args, **kwargs):
-        Form.__init__(self, *args, **kwargs)
-
-    def validate(self):
-        rv = Form.validate(self)
-        if not rv:
-            return False
 
 
 api = Blueprint('api', __name__)
