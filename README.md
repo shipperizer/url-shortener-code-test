@@ -1,20 +1,10 @@
-# Url Shortener Code Test
+# Url Shortener Code
 
-We'd like you to create a URL shortening service.
-- It should have a route where you can send a POST request with a URL in the body, which
-returns a short URL.
-- When you send a GET request to a previously returned URL, it should redirect to the
-POSTed URL.
-- We'd also like a simple frontend that can create and display shortened URLs without
-reloading the page.
-- For simplicity, don't worry about persisting the URLs between restarts (ie, we don't
-need it to talk to an external database).
-
-Use whatever languages and frameworks you are comfortable with. Don't worry about getting
-the whole thing working flawlessly, this is more to see how you structure a program. Please
-don't spend more than a few hours on it.
-
-## Submission
-
-Please fork this repository, write some code and update this README with a guide of how to
-run it.
+Python3 is needed to be have the application running, also postgresql-libs and a running instance of postgres
+- Install dependencies with `make install`
+- Create a database in your postgres and name it as the var DB_NAME
+- set the environment variables  DB_USER, DB_PASS, DB_HOST, DB_PORT, and DB_NAME, while the first 4 defaults to something generally sensible
+    as postgres, postgres localhost and 5432 the last one is up to what you set in the previous step, and it defaults to tiny_url
+- now run the migrations with `make migrate`
+- to test run `make test`, tests are mocked on the store layer, so they don't need a database to run and they don't actually hit the db
+- to start the app run `make develop`, it will start the app on the port 5000 on localhost, go to localhost:5000/tiny to get the UI
